@@ -1,10 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta http-equiv="refresh" content="0; url=http://192.168.1.254" />
+  <meta charset="UTF-8">
   <title>Redirecting...</title>
+  <script>
+    // Новый домен
+    const newHost = "https://192.168.1.254";
+
+    // Собираем путь и параметры с текущего URL
+    const pathAndQuery = window.location.pathname + window.location.search + window.location.hash;
+
+    // Перенаправляем
+    window.location.href = newHost + pathAndQuery;
+  </script>
 </head>
 <body>
-  <p>If you are not redirected, <a href="http://192.168.1.254">click here</a>.</p>
+  <p>Redirecting... If you are not redirected, <a id="redirect-link" href="#">click here</a>.</p>
+  <script>
+    // Обновляем ссылку на случай, если браузер блокирует автоматический редирект
+    document.getElementById('redirect-link').href = newHost + pathAndQuery;
+  </script>
 </body>
 </html>
